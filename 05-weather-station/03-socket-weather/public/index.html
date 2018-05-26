@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Set a Color</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Current Conditions Inside</h1>
+
+  <div class="weather-pane">
+    <h2>Temperature</h2>
+    <p class="weather-pane__metric" id="temperature"></p>
+  </div>
+
+  <div class="weather-metric">
+    <h2>Pressure</h2>
+    <p class="weather-pane__metric" id="pressure"></p>
+  </div>
+
+  <div class="weather-metric">
+    <h2>Relative Humidity</h2>
+    <p class="weather-pane__metric" id="relative-humidity"></p>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
