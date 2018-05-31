@@ -5,7 +5,7 @@ This is the repository for following along with Steve's [Nodebots workshop][nw] 
 This workshop uses the [Johnny-Five Inventor's Kit featuring the Tessel 2][j5ik].
 
 [fem]: https://frontendmasters.com/
-[nws]: https://frontendmasters.com/workshops/nodebots/
+[nw]: https://frontendmasters.com/workshops/nodebots/
 [j5ik]: https://www.sparkfun.com/products/14604
 [t2s]: https://tessel.io/start
 
@@ -13,6 +13,7 @@ This workshop uses the [Johnny-Five Inventor's Kit featuring the Tessel 2][j5ik]
 
 - [Nodebots Workshop](#nodebots-workshop)
   - [Installation and Prerequisites](#installation-and-prerequisites)
+  - [Lesson Plan](#lesson-plan)
   - [Code Samples](#code-samples)
     - [Just Enough Express](#just-enough-express)
     - [Just Enough Socket.io](#just-enough-socketio)
@@ -30,6 +31,10 @@ You should have your Tessel 2 set up before beginning. To get set up, follow [th
 - Install the `t2` command line tool using `npm install -g t2-cli`.
 - Install this project's dependencies using `npm install`.
 - Make a copy of `env.sample.json` and name it `env.json`. This file will be ignored by git but is used by the project for SendGrid and Twitter API keys.
+
+## Lesson Plan
+
+If you hate surprises or don't mind spoilers, Steve's lesson plan and notes are [here](play-by-play.md).
 
 ## Code Samples
 
