@@ -18,6 +18,8 @@ const Twitter = require('node-tweet-stream');
 const t = (t = new Twitter(env.twitter));
 
 t.on('tweet', tweet => {
+  // You're probably going to want to write some code here.
+  // If you need the board to be in scope, you might even want to move this.
   console.log('tweet received', tweet);
 });
 
