@@ -103,8 +103,6 @@ There is clearly some fun stuff here. Let's take a look at the wonderful [docs](
 
 Now that we're breadboard masters. (There is a branding opportunity here, Marc.) Let's wire up a breadboard.
 
-![Simple LED](/Users/stevekinney/Projects/nodebots-workshop/__fritzing/01 Blinking LED.png)
-
 Once we're wired up, let's fire up that code we had before.
 
 Everything should work pretty much the same.
