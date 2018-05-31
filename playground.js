@@ -5,18 +5,15 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  const led = new five.Led.RGB({
-    pins: {
-      red: 'a5',
-      green: 'a6',
-      blue: 'b5',
-    },
+  const monitor = new five.Multi({
+    controller: 'BME280',
   });
 
-  let index = 0;
-  const colors = ['red', 'green', 'blue'];
+  monitor.on('change', () => {
+    const temperature = monitor.thermometer.fahrenheit;
+    const pressure = monitor.barometer.pressure;
+    const relativeHumidity = monitor.hygrometer.relativeHumidity;
 
-  board.loop(500, () => {
-    led.color(colors[index++ % colors.length]);
+    console.log({ temperature, pressure, relativeHumidity });
   });
 });
