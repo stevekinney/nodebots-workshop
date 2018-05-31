@@ -5,3 +5,7 @@
 # You DO NOT need to list node_modules or package.json
 # For more information, visit: https://tessel.io/docs/cli#usage
 
+public/style.css
+public/script.js
+public/index.html
+
