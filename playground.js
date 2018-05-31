@@ -5,13 +5,15 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  const led = new five.Led('a0');
-
-  const button = new five.Button({
-    pin: 'a2',
-    isPullup: true,
+  const monitor = new five.Multi({
+    controller: 'BME280',
   });
 
-  button.on('press', () => led.on());
-  button.on('release', () => led.off());
+  monitor.on('change', () => {
+    const temperature = monitor.thermometer.fahrenheit;
+    const pressure = monitor.barometer.pressure;
+    const relativeHumidity = monitor.hygrometer.relativeHumidity;
+
+    console.log({ temperature, pressure, relativeHumidity });
+  });
 });
