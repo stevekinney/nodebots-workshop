@@ -18,8 +18,6 @@ board.on('ready', () => {
     controller: 'BME280',
   });
 
-  monitor.on('change', handleChange);
-
   const handleChange = throttle(() => {
     const temperature = monitor.thermometer.fahrenheit;
     const pressure = monitor.barometer.pressure;
@@ -29,4 +27,6 @@ board.on('ready', () => {
     graphs.pressure.update(pressure);
     graphs.relativeHumidity.update(relativeHumidity);
   }, 470);
+
+  monitor.on('change', handleChange);
 });
