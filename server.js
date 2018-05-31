@@ -32,7 +32,20 @@ board.on('ready', () => {
     res.sendFile(path.join(__dirname, '/public/index.html'));
   });
 
-  // Our code here!
+  app.post('/', (req, res) => {
+    const { color } = req.body;
+    console.log('Setting the color to %s.', color);
+    led.color(color);
+    res.sendFile(path.join(__dirname, '/public/index.html'));
+  });
+
+  io.on('connection', socket => {
+    console.log('Connected?');
+    socket.on('color change', data => {
+      console.log({ data });
+      led.color(data.color);
+    });
+  });
 
   http.listen(port, function() {
     console.log(

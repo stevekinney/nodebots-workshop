@@ -5,13 +5,18 @@ var board = new five.Board({
 });
 
 board.on('ready', () => {
-  const led = new five.Led('a0');
-
-  const button = new five.Button({
-    pin: 'a2',
-    isPullup: true,
+  const led = new five.Led.RGB({
+    pins: {
+      red: 'a5',
+      green: 'a6',
+      blue: 'b5',
+    },
   });
 
-  button.on('press', () => led.on());
-  button.on('release', () => led.off());
+  let index = 0;
+  const colors = ['red', 'green', 'blue'];
+
+  board.loop(500, () => {
+    led.color(colors[index++ % colors.length]);
+  });
 });
