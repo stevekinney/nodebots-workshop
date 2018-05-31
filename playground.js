@@ -4,40 +4,34 @@ var board = new five.Board({
   io: new Tessel(),
 });
 
-const request = require('superagent');
+const env = require('./env');
+const sendgrid = require('@sendgrid/mail');
+sendgrid.setApiKey(env.sendgrid);
 
 const throttle = require('lodash/throttle');
-const Barcli = require('Barcli');
 
-const graphs = {
-  temperature: new Barcli({ label: 'Temperature', range: [0, 120] }),
-  pressure: new Barcli({ label: 'Pressure', range: [0, 100] }),
-  relativeHumidity: new Barcli({ label: 'Relative Humidity', range: [0, 100] }),
+const openMessage = {
+  to: 'tessel-run@mailinator.com',
+  from: 'steves-tessel@stevekinney.net',
+  subject: 'The Door Has Been Opened',
+  text: 'Everything we feared is happening now.',
+  html: '<p>Everything we feared is happening now.</p>',
 };
 
 board.on('ready', () => {
-  const monitor = new five.Multi({
-    controller: 'BME280',
+  const door = new five.Switch({
+    pin: 'a2',
+    invert: true,
   });
 
-  const handleChange = throttle(() => {
-    const temperature = monitor.thermometer.fahrenheit;
-    const pressure = monitor.barometer.pressure;
-    const relativeHumidity = monitor.hygrometer.relativeHumidity;
+  const handleOpen = throttle(() => {
+    console.log('ALERTING EVERYONE TO THE TERRIBLE EVENT!');
+    sendgrid
+      .send(openMessage)
+      .then(() => console.log('Sent the warning email. Preparing to panic.'))
+      .catch(() => console.log('Something went terribly, terribly wrong'));
+  }, 2000);
 
-    graphs.temperature.update(temperature);
-    graphs.pressure.update(pressure);
-    graphs.relativeHumidity.update(relativeHumidity);
-
-    request
-      .post('https://available-airbus.glitch.me/current-weather')
-      .send({ temperature, pressure, relativeHumidity })
-      .set('accept', 'json')
-      .end((error, response) => {
-        if (error) return console.error(error);
-        console.log('Updating server', { response });
-      });
-  }, 470);
-
-  monitor.on('change', handleChange);
+  door.on('open', handleOpen);
+  door.on('close', () => console.log('close'));
 });
