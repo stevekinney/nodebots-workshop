@@ -4,6 +4,8 @@ var board = new five.Board({
   io: new Tessel(),
 });
 
+const request = require('superagent');
+
 const throttle = require('lodash/throttle');
 const Barcli = require('Barcli');
 
@@ -26,6 +28,15 @@ board.on('ready', () => {
     graphs.temperature.update(temperature);
     graphs.pressure.update(pressure);
     graphs.relativeHumidity.update(relativeHumidity);
+
+    request
+      .post('https://available-airbus.glitch.me/current-weather')
+      .send({ temperature, pressure, relativeHumidity })
+      .set('accept', 'json')
+      .end((error, response) => {
+        if (error) return console.error(error);
+        console.log('Updating server', { response });
+      });
   }, 470);
 
   monitor.on('change', handleChange);
