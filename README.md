@@ -18,6 +18,8 @@ This workshop uses the [Johnny-Five Inventor's Kit featuring the Tessel 2][j5ik]
     - [Just Enough Socket.io](#just-enough-socketio)
   - [Common Errors (and Potential Solutions)](#common-errors-and-potential-solutions)
     - [Installation Failing for `t2-cli`](#installation-failing-for-t2-cli)
+  - [Licenses](#licenses)
+  - [References](#references)
 
 <!-- /TOC -->
 
@@ -135,3 +137,14 @@ xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer dire
 
 **Option 2**: Install Xcode and give it another shot. Why do you need Xcode? npm tried to grab a compiled C++ module—in this case, `usb_bindings-v1.3.1-node-v64-darwin-x64.tar.gz`—and it didn't go well. (It ended in a 404.) So, then npm was like, "Fine! I'll compile it myself!" That didn't go well either. I can't fix the 404 for you, but at the very least, I can try to help with the compilation issue—hence, the recommendation to go get Xcode.
 
+## Licenses
+
+- **Code**: [MIT](LICENSE.md)
+- **Prose**: [CC BY-SA 4.0][cc]
+
+[cc]: https://creativecommons.org/licenses/by-sa/4.0/
+
+## References
+
+- [Experiment Guide for the Johnny-Five Inventor's Kit](https://learn.sparkfun.com/tutorials/experiment-guide-for-the-johnny-five-inventors-kit/introduction-to-the-johnny-five-inventors-kit)
+- [Johnny-Five documentation](http://johnny-five.io/api/)
