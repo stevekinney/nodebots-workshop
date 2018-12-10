@@ -1,11 +1,11 @@
 # Nodebots Workshop
 
-This is the repository for following along with Steve's [Nodebots workshop][nw] for [Frontend Masters][fem].
+This is the repository for following along with Steve's [Nodebots Course][nw] for [Frontend Masters][fem].
 
 This workshop uses the [Johnny-Five Inventor's Kit featuring the Tessel 2][j5ik].
 
 [fem]: https://frontendmasters.com/
-[nw]: https://frontendmasters.com/workshops/nodebots/
+[nw]: https://frontendmasters.com/courses/nodebots/
 [j5ik]: https://www.sparkfun.com/products/14604
 [t2s]: https://tessel.io/start
 
