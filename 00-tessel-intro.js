@@ -2,6 +2,9 @@
 
 const tessel = require('tessel');
 
+tessel.led[2].on();
+tessel.led[3].off();
+
 setInterval(() => {
   tessel.led[2].toggle();
   tessel.led[3].toggle();
