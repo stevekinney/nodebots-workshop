@@ -142,6 +142,24 @@ xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer dire
 
 **Option 2**: Install Xcode and give it another shot. Why do you need Xcode? npm tried to grab a compiled C++ module—in this case, `usb_bindings-v1.3.1-node-v64-darwin-x64.tar.gz`—and it didn't go well. (It ended in a 404.) So, then npm was like, "Fine! I'll compile it myself!" That didn't go well either. I can't fix the 404 for you, but at the very least, I can try to help with the compilation issue—hence, the recommendation to go get Xcode.
 
+## Course Wiring Diagrams
+
+![Figure #1-1 LED](wiring-diagrams/figure-01-01-led.png)
+
+![Figure #1-2 LED PWM](wiring-diagrams/figure-01-02-led-pwm.png)
+
+![Figure #2 Button](wiring-diagrams/figure-02-button.png)
+
+![Figure #3 RGB](wiring-diagrams/figure-03-rgb.png)
+
+![Figure #4 BME280](wiring-diagrams/figure-04-bme280.png)
+
+![Figure #5 Photo Resistor](wiring-diagrams/figure-05-photoresistor.png)
+
+![Figure #6 Door Switch](wiring-diagrams/figure-06-door-switch.png)
+
+![Figure #7 LCD Display](wiring-diagrams/figure-07-lcd-v2.png)
+
 ## Licenses
 
 - **Code**: [MIT](LICENSE.md)
